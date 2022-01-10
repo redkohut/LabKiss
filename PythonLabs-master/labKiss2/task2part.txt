@@ -1,0 +1,20 @@
+Task 1.
+Create a class that descibes a Product of online store. As a Product fields you can use a price,
+description and product' dimensions.
+Create a class that describes a Customer. As a Customer fields you can use surname, name, patronymic, mobile phone, etc.
+Create a class that describes an Order.
+- the order must contain data about the customer who carried it out and products. Implement a method
+for calculating the total order value.
+Task 2.
+Create a class that performs statistical processing of a text file - counting characters, words, sentences, etc.
+Determine the required attributes-data and attributes-methods in class for working with the text file.
+Task 3.
+The class GROUP contains a sequence of instances of the class STUDENT. The class STUDENT contains the student's name,
+surname, record book number and grades. Determine the required attributes-data and attributes-methods in classes GROUP
+and STUDENT. Find the average score of each student. Output to the standard output stream the five students with the
+highest average score.
+Assume that there can be no more than 20 students in a group, as well as students with the same name and surname.
+Task 4.
+Create a class BINARY TREE that contains background information of product prices (product code, price of 1 product).
+The tree is sorted by product codes. From the keyboard enter data on the number of products in the format: product code,
+number of products. Using a tree, find the cost of products (cost = quantity * price of one product).

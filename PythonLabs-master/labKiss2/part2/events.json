@@ -1,0 +1,44 @@
+[
+    {
+        "IT event": "BRECKERS GAME JAM",
+        "id": 1,
+        "standard price": 1000.0,
+        "event date": "2022-03-28"
+    },
+    {
+        "IT event": "HACKwithMATE HACKATHON",
+        "id": 2,
+        "standard price": 1000.0,
+        "event date": "2022-12-04"
+    },
+    {
+        "IT event": "AI CONFERENCE 2022",
+        "id": 3,
+        "standard price": 1200.0,
+        "event date": "2022-02-11"
+    },
+    {
+        "IT event": "PAN-INDIA ONLINE HACKATHON",
+        "id": 4,
+        "standard price": 400.0,
+        "event date": "2022-04-26"
+    },
+    {
+        "IT event": "GLOBAL GAME JAM",
+        "id": 5,
+        "standard price": 750.0,
+        "event date": "2022-01-16"
+    },
+    {
+        "IT event": "TREX HACKATHON",
+        "id": 6,
+        "standard price": 400.0,
+        "event date": "2022-04-04"
+    },
+    {
+        "IT event": "DECODE THE OCEAN 2022",
+        "id": 7,
+        "standard price": 850.0,
+        "event date": "2022-07-15"
+    }
+]

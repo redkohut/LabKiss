@@ -1,0 +1,26 @@
+Lab #4. Part 1 (deadline - 9/12/2021)
+1. Modify the class Rational of Lab No2 to perform the following tasks:
+- adding two Rational numbers. The result should be stored in reduced form;
+- subtracting two Rational numbers. The result should be stored in reduced form;
+- multiplying two Rational numbers. The result should be stored in reduced form;
+- dividing two Rational numbers. The result should be stored in reduced form;
+- comparison two Rational numbers.
+2.
+TI-02
+Create a class NOTEBOOK, which contains the name, surname, number phone and birthday of person. Define methods of access to these fields and overload operations:
+"+" - for adding a new element;
+"-" - for deleting an element;
+"*" - for searching for an element in the Notebook on one of the data fields.
+
+Lab #4. Part 2 (deadline - 16/12/2021)
+A software academy teaches two types of courses: local courses that are held
+in some of the academy’s local labs and offsite courses held in some other
+town outside of the academy’s headquarters. Each course has a name, a teacher
+assigned to teach it and a course program (sequence of topics). Each teacher
+has a name and knows the courses he or she teaches. Both courses and teachers
+could be printed in human-readable text form. All your courses should
+implement ICourse. Teachers should implement ITeacher. Local and offsite
+courses should implement ILocalCourse and IOffsiteCourse respectively.
+Courses and teachers should be created only through the ICourseFactory
+interface implemented by a class named CourseFactory. Write a program
+that will form courses of software academy.
