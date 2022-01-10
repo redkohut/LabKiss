@@ -1,4 +1,3 @@
-import tkinter
 from tkinter import *
 from tkinter import ttk
 from PIL import ImageTk, Image
@@ -43,7 +42,7 @@ class PDF(FPDF):
         if tickets == 1:
             self.image('regular.png', 10, 8, 25)
             self.set_font('times', 'B', 20)
-            self.cell(0, 10, 'Regular Ticket', border=False, ln=1,align='C')
+            self.cell(0, 10, 'Regular Ticket', border=False, ln=1, align='C')
             self.ln(20)
         elif tickets == 2:
             self.image('advance.png', 10, 8, 25)
@@ -71,19 +70,54 @@ class Task3Task1:
     """
 
     def __init__(self, root):
+        self.but5 = None
+        self.but4 = None
+        self.ticket_imag4 = None
+        self.but3 = None
+        self.ticket_imag3 = None
+        self.but2 = None
+        self.ticket_imag2 = None
+        self.but1 = None
+        self.ticket_imag1 = None
+        self.ff1 = None
+        self.user_buttons = None
+        self.img2 = None
+        self.color_frame = None
+        self.event_image7 = None
+        self.event_image6 = None
+        self.event_image5 = None
+        self.event_image4 = None
+        self.event_image3 = None
+        self.event_image2 = None
+        self.event_image1 = None
+        self.event6 = None
+        self.event7 = None
+        self.event5 = None
+        self.event3 = None
+        self.event4 = None
+        self.event2 = None
+        self.event1 = None
+        self.design_frame2 = None
+        self.design_frame1 = None
+        self.main_label = None
+        self.second_frame = None
+        self.scrollbar = None
+        self.canvas = None
+        self.main_frame = None
+        self.bar_button = None
         self.root = root
         self.__task = 'Write a program for selling tickets to IT-events. Each ticket has\n'\
-                        'a unique number and a price. There are four types of tickets: regular\n'\
-                        'ticket, advance ticket (purchased 60 or more days before the event),\n'\
-                        'late ticket (purchased fewer than 10 days before the event) and student ticket.\n'\
-                        'Additional information:\n'\
-                        '-advance ticket - discount 40% of the regular ticket price;\n'\
-                        '-student ticket - discount 50% of the regular ticket price;\n'\
-                        '-late ticket - additional 10% to the reguler ticket price.\n'\
-                        'All tickets must have the following properties:\n'\
-                        '-the ability to construct a ticket by number;\n'\
-                        '-the ability to ask for a ticket’s price;\n'\
-                        '-the ability to print a ticket as a String.'
+                      'a unique number and a price. There are four types of tickets: regular\n'\
+                      'ticket, advance ticket (purchased 60 or more days before the event),\n'\
+                      'late ticket (purchased fewer than 10 days before the event) and student ticket.\n'\
+                      'Additional information:\n'\
+                      '-advance ticket - discount 40% of the regular ticket price;\n'\
+                      '-student ticket - discount 50% of the regular ticket price;\n'\
+                      '-late ticket - additional 10% to the reguler ticket price.\n'\
+                      'All tickets must have the following properties:\n'\
+                      '-the ability to construct a ticket by number;\n'\
+                      '-the ability to ask for a ticket’s price;\n'\
+                      '-the ability to print a ticket as a String.'
         self.list_students = Label(self.root, text=self.__task, fg='#000000', bg='#12c4c0', font=('Comic Sans MS', 15))
 
         self.f1 = Frame(self.root, width=900, height=600, bg='#262626')
@@ -156,7 +190,8 @@ class Task3Task1:
         #   need to create all events objects   #
         #########################################
         self.event1 = Event('BRECKERS GAME JAM', 1, datetime.strptime('2022-03-28', '%Y-%m-%d').date(), 1000.0, 500)
-        self.event2 = Event('HACKwithMATE HACKATHON', 2, datetime.strptime('2022-12-04', '%Y-%m-%d').date(), 1000.0, 400)
+        self.event2 = Event('HACKwithMATE HACKATHON', 2, datetime.strptime('2022-12-04',
+                                                                           '%Y-%m-%d').date(), 1000.0, 400)
         self.event3 = Event('AI CONFERENCE 2022', 3, datetime.strptime('2022-02-11', '%Y-%m-%d').date(), 1200.0, 600)
         self.event4 = Event('PAN-INDIA ONLINE HACKATHON', 4,
                             datetime.strptime('2022-04-26', '%Y-%m-%d').date(), 400.0, 50)
@@ -171,7 +206,7 @@ class Task3Task1:
                bg='#12c4c0',
                activeforeground='#0f9d9a',
                activebackground='#12c4c0',
-               command=lambda: self.fuckingfunction(self.event1)).grid(row=10, column=0, pady=200, padx=200)
+               command=lambda: self.tickets_controller(self.event1)).grid(row=10, column=0, pady=200, padx=200)
         Label(self.second_frame, text=text.event1,
               fg='#12c4c0', bg='#323232', font=('Comic Sans MS', 16)).place(x=180, y=510)
         self.event_image2 = ImageTk.PhotoImage(Image.open('event2.png'))
@@ -181,7 +216,7 @@ class Task3Task1:
                bg='#12c4c0',
                activeforeground='#0f9d9a',
                activebackground='#12c4c0',
-               command=lambda: self.fuckingfunction(self.event2)).grid(row=100, column=0, pady=150, padx=50)
+               command=lambda: self.tickets_controller(self.event2)).grid(row=100, column=0, pady=150, padx=50)
         Label(self.second_frame, text=text.event2,
               fg='#12c4c0', bg='#323232', font=('Comic Sans MS', 16)).place(x=180, y=1210)
         self.event_image3 = ImageTk.PhotoImage(Image.open('event3.png'))
@@ -191,7 +226,7 @@ class Task3Task1:
                bg='#12c4c0',
                activeforeground='#0f9d9a',
                activebackground='#12c4c0',
-               command=lambda: self.fuckingfunction(self.event3)).grid(row=200, column=0, pady=150, padx=50)
+               command=lambda: self.tickets_controller(self.event3)).grid(row=200, column=0, pady=150, padx=50)
         Label(self.second_frame, text=text.event3,
               fg='#12c4c0', bg='#323232', font=('Comic Sans MS', 16)).place(x=180, y=1810)
         self.event_image4 = ImageTk.PhotoImage(Image.open('event4.png'))
@@ -201,7 +236,7 @@ class Task3Task1:
                bg='#12c4c0',
                activeforeground='#0f9d9a',
                activebackground='#12c4c0',
-               command=lambda: self.fuckingfunction(self.event4)).grid(row=300, column=0, pady=150, padx=50)
+               command=lambda: self.tickets_controller(self.event4)).grid(row=300, column=0, pady=150, padx=50)
         Label(self.second_frame, text=text.event4,
               fg='#12c4c0', bg='#323232', font=('Comic Sans MS', 16)).place(x=180, y=2410)
         self.event_image5 = ImageTk.PhotoImage(Image.open('event5.png'))
@@ -211,7 +246,7 @@ class Task3Task1:
                bg='#12c4c0',
                activeforeground='#0f9d9a',
                activebackground='#12c4c0',
-               command=lambda: self.fuckingfunction(self.event5)).grid(row=400, column=0, pady=150, padx=50)
+               command=lambda: self.tickets_controller(self.event5)).grid(row=400, column=0, pady=150, padx=50)
         Label(self.second_frame, text=text.event5,
               fg='#12c4c0', bg='#323232', font=('Comic Sans MS', 16)).place(x=180, y=3050)
         self.event_image6 = ImageTk.PhotoImage(Image.open('event6.png'))
@@ -221,7 +256,7 @@ class Task3Task1:
                bg='#12c4c0',
                activeforeground='#0f9d9a',
                activebackground='#12c4c0',
-               command=lambda: self.fuckingfunction(self.event6)).grid(row=500, column=0, pady=150, padx=50)
+               command=lambda: self.tickets_controller(self.event6)).grid(row=500, column=0, pady=150, padx=50)
         Label(self.second_frame, text=text.event6,
               fg='#12c4c0', bg='#323232', font=('Comic Sans MS', 16)).place(x=180, y=3710)
         self.event_image7 = ImageTk.PhotoImage(Image.open('event7.png'))
@@ -231,7 +266,7 @@ class Task3Task1:
                bg='#12c4c0',
                activeforeground='#0f9d9a',
                activebackground='#12c4c0',
-               command=lambda: self.fuckingfunction(self.event7)).grid(row=600, column=0, pady=150, padx=50)
+               command=lambda: self.tickets_controller(self.event7)).grid(row=600, column=0, pady=150, padx=50)
         Label(self.second_frame, text=text.event7,
               fg='#12c4c0', bg='#323232', font=('Comic Sans MS', 16)).place(x=180, y=4210)
 
@@ -247,11 +282,8 @@ class Task3Task1:
         self.img2 = ImageTk.PhotoImage(Image.open('user.png'))
         self.user_buttons = Button(self.main_frame, image=self.img2, border=0)
         self.user_buttons.place(x=845, y=10)
-        # scroll = ttk.Scrollbar(self.root, command=self.tab_ti_01.yview)
-        # scroll.pack(side=LEFT, fill=Y)
-        # self.tree.configure(yscrollcommand=scroll.set)
 
-    def fuckingfunction(self, event):
+    def tickets_controller(self, event):
         ################################################
         #   Next step - add all types of tickets:      #
         #   Regular(Ticket), Late, Student, Advance    #
@@ -326,7 +358,8 @@ class Task3Task1:
     def back_app(self):
         self.ff1.destroy()
 
-    def order_ticket(self, type_of_tickets, event):
+    @staticmethod
+    def order_ticket(type_of_tickets, event):
         pdf = None
         ticket = None
         description = None
@@ -401,7 +434,7 @@ class Task3Task1:
         pdf.set_font('times', 'B', 20)
         pdf.output('ticket.pdf')
         description = str(ticket)
-        #send = Send(description)
+        send = Send(description)
 
 
 class Send:
@@ -416,5 +449,6 @@ class Send:
                             'Buying a ticket',
                             description,
                             'ticket',
-                            'C:/Users/zheni/Education/KPI/2 курс/1 семестр/Python/Labkiss/PythonLabs-master/labKiss2/part2')
+                            'C:/Users/zheni/Education/KPI/2 курс/1 семестр/Python/Labkiss/PythonLabs-master/'
+                            'labKiss2/part2')
         self.send.email_send()
